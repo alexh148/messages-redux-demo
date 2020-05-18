@@ -3,22 +3,14 @@ const actionTypes = {
   REMOVE_MESSAGE: "REMOVE_MESSAGE"
 };
 
-const initialState = {
-  messages: []
-};
+const initialState = [];
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_MESSAGE:
-      return {
-        ...state,
-        messages: state.messages.push(action.message)
-      };
+      return [...state, action.message];
     case actionTypes.REMOVE_MESSAGE:
-      return {
-        ...state,
-        messages: state.messages.filter(m => m.id !== action.idToRemove)
-      };
+      return state.filter(m => m.id !== action.idToRemove);
     default:
       return state;
   }
