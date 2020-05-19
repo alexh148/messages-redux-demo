@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import App2 from "./App2";
 import { addMessage, removeMessage } from "../redux/messages/actions";
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     messages: state.messages
   };
@@ -13,7 +13,4 @@ const mapDispatchToProps = {
   removeMessage
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App2);
+export default connect(mapStateToProps, mapDispatchToProps)(App2);
